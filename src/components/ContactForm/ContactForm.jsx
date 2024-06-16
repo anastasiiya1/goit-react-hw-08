@@ -3,7 +3,7 @@ import { useId } from 'react';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addNewContact } from '../../redux/contactsOps';
+import { addNewContact } from '../../redux/contacts/operations';
 
 const initialValue = {
   name: '',

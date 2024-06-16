@@ -4,7 +4,7 @@ import {
   selectError,
   selectIsLoading,
   selectFilteredContacts,
-} from '../../redux/selectors';
+} from '../../redux/contacts/selectors';
 import css from './ContactList.module.css';
 import TotalContacts from 'components/TotalContacts/TotalContacts';
 import Loader from 'components/Loader/Loader';

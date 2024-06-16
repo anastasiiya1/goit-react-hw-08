@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/selectors';
+import { selectContacts } from '../../redux/contacts/selectors';
 import css from './TotalContacts.module.css';
 
 function TotalContacts() {

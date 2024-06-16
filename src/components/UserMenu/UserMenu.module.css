@@ -1,0 +1,40 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
+	margin-right: 20px;
+  }
+  
+  .userWelcome {
+	font-size: 1.2rem;
+	color: #333;
+	margin-bottom: 10px;
+  }
+  
+  .logoutButton {
+	display: inline-block;
+	background-color: #dc3545;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 1rem;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .logoutButton:hover {
+	background-color: #c82333;
+  }
+  
+  .logoutButton:focus {
+	outline: none;
+	background-color: #bd2130;
+  }
+
+  .icon {
+	height: 20px;
+	margin-right: 8px; 
+	vertical-align: middle;
+  }
