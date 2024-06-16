@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	background-color: #f8f9fa;
+	border-radius: 5px;
+	border: 1px solid #e9ecef;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	margin: 0 auto;
+  }
+  
+  .text {
+	font-size: 18px;
+	font-weight: bold;
+	color: #495057;
+  }
