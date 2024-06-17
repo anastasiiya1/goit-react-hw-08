@@ -1,13 +1,10 @@
-import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { login } from '../../redux/auth/operations';
+import { useAuth } from '../AuthProvider';
 import styles from './LoginForm.module.css';
-import { useState } from 'react';
 
 function LoginForm() {
-  const dispatch = useDispatch();
-  const [error, setError] = useState('');
+  const { loginUser, error: authError } = useAuth();
 
   const initValues = {
     email: '',
@@ -22,19 +19,8 @@ function LoginForm() {
   });
 
   const handleLoginSubmit = async (values, { resetForm }) => {
-    try {
-      await dispatch(login(values));
-      resetForm();
-      setError('');
-    } catch (error) {
-      if (error.message === 'User not registered') {
-        setError('This user is not registered');
-      } else {
-        setError('Oops, something went wrong... Please try again.');
-      }
-    } finally {
-      setError('');
-    }
+    await loginUser(values);
+    resetForm();
   };
 
   return (
@@ -66,7 +52,7 @@ function LoginForm() {
               />
             </div>
 
-            {error && <div className={styles.error}>{error}</div>}
+            {authError && <div className={styles.error}>{authError}</div>}
 
             <button type="submit">Log In</button>
           </Form>

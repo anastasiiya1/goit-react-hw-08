@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router';
-import { useEffect, lazy} from 'react';
+import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import { selectIsRefreshing } from './redux/auth/selectors';
 import { refreshUser } from './redux/auth/operations';
 import Layout from './components/Layout';
-
+import { AuthProvider } from './components/AuthProvider';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
@@ -21,9 +21,11 @@ const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <p>Refreshing user...</p>
-  ) : (
+  return (
+    <AuthProvider>
+      {isRefreshing ? (
+        <p>Refreshing user...</p>
+      ) : (
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -56,6 +58,8 @@ const App = () => {
             />
           </Routes>
         </Layout>
+      )}
+    </AuthProvider>
   );
 };
 
